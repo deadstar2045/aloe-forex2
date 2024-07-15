@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <img src="Aloe-Ferox.webp" alt="Logo" class="logo">
+        <nav>
+            <button>Aloe plant Information</button>
+            <button>Data collected</button>
+            <button>Information collected</button>
+            <button>Group Information</button>
+        </nav>
+    </header>
+    <div class="main-content">
+        <h1>Welcome to the Main Page</h1>
+        <div class="user-info">
+            <p id="welcomeMessage"></p>
+        </div>
+        <div class="grid-container">
+            <div class="grid-row">
+                <div class="grid-item">
+                    Grid Row 1 - Placeholder
+                </div>
+                <div class="grid-item">
+                    Grid Row 1 - Placeholder
+                </div>
+                <div class="grid-item">
+                    Grid Row 1 - Placeholder
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <footer>
+        <p>Contact Info: Placeholder</p>
+    </footer>
+    <script>
+        // Extract URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const age = urlParams.get('age');
+
+        // Display welcome message
+        document.getElementById('welcomeMessage').textContent = `Hello, ${name}! You are ${age} years old.`;
+
+        // Scroll functionality for header
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function(){
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            const header = document.getElementById('header');
+            if (st > lastScrollTop){
+                // downscroll
+                header.style.top = "-50px"; // Adjust as needed
+            } else {
+                // upscroll
+                header.style.top = "0";
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        }, false);
+    </script>
+</body>
+</html>
